@@ -30,6 +30,7 @@ public class Main {
         }
 
         System.out.println("Damage taken (less is better)");
+        defenders.sort((p1, p2) -> Double.compare(p1.getDamageTaken(), p2.getDamageTaken()));
         for (Pokemon defender : defenders) {
             System.out.println(defender.getDamageTaken() + " - " + defender.getName());
         }
