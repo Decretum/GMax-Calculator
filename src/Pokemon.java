@@ -1,10 +1,12 @@
 public class Pokemon {
 
-    private String name;
-    private String type1;
-    private String type2;
-    private int hp;
-    private int defense;
+    private final String name;
+    private final String type1;
+    private final String type2;
+    private final int hp;
+    private final int defense;
+
+    private double damageTaken;
 
     public Pokemon(String name, String type1, String type2, int hp, int defense) {
         this.name = name;
@@ -12,6 +14,7 @@ public class Pokemon {
         this.type2 = type2;
         this.hp = hp;
         this.defense = defense;
+        this.damageTaken = 0;
     }
 
     public String getName() {
@@ -32,5 +35,13 @@ public class Pokemon {
 
     public int getDefense() {
         return defense;
+    }
+
+    public void addDamage(double damage) {
+        this.damageTaken += damage;
+    }
+
+    public double getDamageTaken() {
+        return damageTaken;
     }
 }
