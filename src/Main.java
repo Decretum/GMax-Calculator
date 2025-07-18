@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -15,6 +16,7 @@ public class Main {
         // Get values from https://pokechespin.net/dynamax
         List<Pokemon> defenders = getDefenders();
 
+        // GMax Lapras
         List<Move> attackingMoves = List.of(
                 new Move("Blizzard", "Ice", applySTAB(130)),
                 new Move("Hydro Pump", "Water", applySTAB(135)),
@@ -30,7 +32,7 @@ public class Main {
         }
 
         System.out.println("Damage taken (less is better)");
-        defenders.sort((p1, p2) -> Double.compare(p1.getDamageTaken(), p2.getDamageTaken()));
+        defenders.sort(Comparator.comparingDouble(Pokemon::getDamageTaken));
         for (Pokemon defender : defenders) {
             System.out.println(defender.getDamageTaken() + " - " + defender.getName());
         }

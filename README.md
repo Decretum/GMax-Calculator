@@ -1,2 +1,7 @@
-Zamazenta L50 with free T3 shield vs L50 Blissey: Blissey takes an average of 10% more damage (% of HP, not true damage)
-Zamazenta L50 with free T3 shield vs L40 Blissey (My situation, and possibly many others): Blissey takes an average of 25% more damage (% of HP, not true damage)
+GMax Lapras
+
+Damage taken (less is better)
+0.007389656151366877 - Zamazenta L50 (with free T3 shield)
+0.008173644537280903 - Blissey L50
+0.009241037049713357 - Blissey L40
+0.010381711409395974 - Lapras L40
