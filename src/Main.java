@@ -5,7 +5,7 @@ import java.util.*;
 public class Main {
 
     // Configure the raid boss moveset here, see below for options
-    private static final String RAID_BOSS = "Lapras";
+    private static final String RAID_BOSS = "Butterfree";
     private static final double STAB_BOOST = 1.2;
 
     private static List<Pokemon> configureDefenders() {
@@ -74,10 +74,13 @@ public class Main {
             }
         }
 
-        System.out.println("Damage taken (less is better)");
         defenders.sort(Comparator.comparingDouble(Pokemon::getDamageTaken));
+
+        System.out.println(RAID_BOSS + "\n");
+        System.out.println("| Damage taken (less is better) | Defender |");
+        System.out.println("| ---------- | ---------- |");
         for (Pokemon defender : defenders) {
-            System.out.println(defender.getDamageTaken() + " - " + defender.getName());
+            System.out.println("| " + defender.getDamageTaken() + " | " + defender.getName() + " |");
         }
     }
 }
