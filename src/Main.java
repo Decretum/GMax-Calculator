@@ -78,9 +78,9 @@ public class Main {
 
         System.out.println(RAID_BOSS + "\n");
         System.out.println("| Damage taken (less is better) | Defender |");
-        System.out.println("| ---------- | ---------- |");
+        System.out.println("|-------------------------------|----------|");
         for (Pokemon defender : defenders) {
-            System.out.println("| " + defender.getDamageTaken() + " | " + defender.getName() + " |");
+            System.out.printf("| %.28f | %-8s |\n", defender.getDamageTaken(), defender.getName());
         }
     }
 }
