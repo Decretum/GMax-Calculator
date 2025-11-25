@@ -4,8 +4,6 @@ import java.util.*;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
 
-    // Configure the raid boss moveset here, see below for options
-    private static final String RAID_BOSS = "Butterfree";
     private static final double STAB_BOOST = 1.2;
 
     private static List<Pokemon> configureDefenders() {
@@ -31,7 +29,7 @@ public class Main {
         return defenders;
     }
 
-    private static List<Move> configureRaidBoss() {
+    private static Map<String, List<Move>> configureRaidBosses() {
         Map<String, List<Move>> options = new HashMap<>();
         options.put("Lapras", List.of(
                 new Move("Blizzard", "Ice", applySTAB(130)),
@@ -57,7 +55,7 @@ public class Main {
         ));
 
 
-        return options.get(RAID_BOSS);
+        return options;
     }
 
     private static int applySTAB(int power) {
@@ -65,8 +63,19 @@ public class Main {
     }
 
     public static void main(String[] args) {
+        String raidBoss = "Butterfree";
+        if (args.length > 0) {
+            raidBoss = args[0];
+        }
+
+        Map<String, List<Move>> raidBosses = configureRaidBosses();
+        if (!raidBosses.containsKey(raidBoss)) {
+            System.out.println("Invalid raid boss specified. Please choose from: " + String.join(", ", raidBosses.keySet()));
+            return;
+        }
+
         List<Pokemon> defenders = configureDefenders();
-        List<Move> attackingMoves = configureRaidBoss();
+        List<Move> attackingMoves = raidBosses.get(raidBoss);
 
         for (Move move : attackingMoves) {
             for (Pokemon defender : defenders) {
@@ -76,7 +85,7 @@ public class Main {
 
         defenders.sort(Comparator.comparingDouble(Pokemon::getDamageTaken));
 
-        System.out.println(RAID_BOSS + "\n");
+        System.out.println(raidBoss + "\n");
         System.out.println("| Damage taken (less is better) | Defender |");
         System.out.println("| ---------- | ---------- |");
         for (Pokemon defender : defenders) {
