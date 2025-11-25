@@ -61,7 +61,7 @@ public class Main {
     }
 
     private static int applySTAB(int power) {
-        return (int) STAB_BOOST * power;
+        return (int) (STAB_BOOST * power);
     }
 
     public static void main(String[] args) {
