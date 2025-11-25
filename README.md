@@ -39,13 +39,13 @@ Latios
 
 Butterfree
 
-| Damage taken (less is better) | Defender                            |
-|-------------------------------|-------------------------------------|
-| 0.0026954501427831866         | Zamazenta L50 (with free T3 shield) |
-| 0.00339747312408838           | Zacian L50                          |
-| 0.004011140374776738          | Blissey L50                         |
-| 0.004148731776502408          | Corviknight L40                     |
-| 0.004534953366988962          | Blissey L40                         |
-| 0.0077327108257951565         | Lapras L40                          |
-| 0.00992973151144672           | Latias L40                          |
-| 0.01263486347333102           | Gengar L40                          |
+| Damage taken (less is better) | Defender |
+| ---------- | ---------- |
+| 0.0029172442009986472 | Zamazenta L50 (with free T3 shield) |
+| 0.003756212522284047 | Zacian L50 |
+| 0.00452577725304998 | Blissey L50 |
+| 0.004586796622468501 | Corviknight L40 |
+| 0.005116796440489433 | Blissey L40 |
+| 0.0087248322147651 | Lapras L40 |
+| 0.01155984058492149 | Latias L40 |
+| 0.013403187550618999 | Gengar L40 |
