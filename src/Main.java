@@ -5,7 +5,7 @@ import java.util.*;
 public class Main {
 
     // Configure the raid boss moveset here, see below for options
-    private static final String RAID_BOSS = "Butterfree";
+    private static final String RAID_BOSS = "Gorgonzilla";
     private static final double STAB_BOOST = 1.2;
 
     private static List<Pokemon> configureDefenders() {
@@ -54,6 +54,11 @@ public class Main {
                 new Move("Bug Buzz", "Bug", applySTAB(95)),
                 new Move("Signal Beam", "Bug", applySTAB(75)),
                 new Move("Psychic", "Psychic", 95)
+        ));
+        options.put("Gorgonzilla", List.of(
+                new Move("Sharp Cheddar", "Rock", 120),
+                new Move("Gouda Blast", "Fire", 150),
+                new Move("Swiss Miss", "Ice", 100)
         ));
 
 
