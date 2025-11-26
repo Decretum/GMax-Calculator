@@ -5,7 +5,7 @@ import java.util.*;
 public class Main {
 
     // Configure the raid boss moveset here, see below for options
-    private static final String RAID_BOSS = "Butterfree";
+    private static final String RAID_BOSS = "Eternatus";
     private static final double STAB_BOOST = 1.2;
 
     private static List<Pokemon> configureDefenders() {
@@ -54,6 +54,12 @@ public class Main {
                 new Move("Bug Buzz", "Bug", applySTAB(95)),
                 new Move("Signal Beam", "Bug", applySTAB(75)),
                 new Move("Psychic", "Psychic", 95)
+        ));
+        options.put("Eternatus", List.of(
+                new Move("Dynamax Cannon", "Dragon", applySTAB(100)),
+                new Move("Eternabeam", "Dragon", applySTAB(160)),
+                new Move("Sludge Bomb", "Poison", applySTAB(90)),
+                new Move("Flamethrower", "Fire", 90)
         ));
 
 
