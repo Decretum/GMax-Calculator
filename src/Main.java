@@ -4,8 +4,6 @@ import java.util.*;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
 
-    // Configure the raid boss moveset here, see below for options
-    private static final String RAID_BOSS = "Butterfree";
     private static final double STAB_BOOST = 1.2;
 
     private static List<Pokemon> configureDefenders() {
@@ -31,7 +29,7 @@ public class Main {
         return defenders;
     }
 
-    private static List<Move> configureRaidBoss() {
+    private static List<Move> configureRaidBoss(String raidBoss) {
         Map<String, List<Move>> options = new HashMap<>();
         options.put("Lapras", List.of(
                 new Move("Blizzard", "Ice", applySTAB(130)),
@@ -57,16 +55,26 @@ public class Main {
         ));
 
 
-        return options.get(RAID_BOSS);
+        return options.get(raidBoss);
     }
 
     private static int applySTAB(int power) {
-        return (int) STAB_BOOST * power;
+        return (int) (STAB_BOOST * power);
     }
 
     public static void main(String[] args) {
+        String raidBoss = "Butterfree";
+        if (args.length > 0) {
+            raidBoss = args[0];
+        }
+
         List<Pokemon> defenders = configureDefenders();
-        List<Move> attackingMoves = configureRaidBoss();
+        List<Move> attackingMoves = configureRaidBoss(raidBoss);
+
+        if (attackingMoves == null) {
+            System.out.println("Invalid raid boss specified: " + raidBoss);
+            return;
+        }
 
         for (Move move : attackingMoves) {
             for (Pokemon defender : defenders) {
@@ -76,7 +84,7 @@ public class Main {
 
         defenders.sort(Comparator.comparingDouble(Pokemon::getDamageTaken));
 
-        System.out.println(RAID_BOSS + "\n");
+        System.out.println(raidBoss + "\n");
         System.out.println("| Damage taken (less is better) | Defender |");
         System.out.println("| ---------- | ---------- |");
         for (Pokemon defender : defenders) {
